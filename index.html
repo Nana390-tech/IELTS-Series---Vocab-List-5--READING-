@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CBL Lesson 2 — Reading: The Towers That Drink Fog</title>
+<style>
+:root{
+  --ink:#33162A; --berry:#7A2E4E; --rose:#A8577A; --steel:#2E6E8E; --green:#2E7D5B; --red:#B3342E;
+  --paper:#F4EFF1; --white:#fff; --line:#E0CFD7; --muted:#6E5A65; --pale:#F7F0F3; --cream:#FFF6E9;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);
+  font-family:"Segoe UI",Roboto,system-ui,-apple-system,Arial,sans-serif;font-size:16px;line-height:1.55}
+.page{max-width:900px;margin:0 auto;background:var(--white);padding:0 0 50px;box-shadow:0 2px 20px rgba(0,0,0,.07)}
+.inner{padding:0 40px}
+
+.btnbar{position:sticky;top:0;z-index:10;background:var(--ink);padding:9px 40px;display:flex;gap:9px;flex-wrap:wrap}
+.btnbar button,.btnbar a{font:inherit;font-size:14px;font-weight:700;cursor:pointer;border:none;border-radius:8px;
+  padding:8px 15px;background:var(--steel);color:#fff;text-decoration:none}
+.btnbar a.alt{background:rgba(255,255,255,.15)}
+
+.masthead{background:var(--ink);color:#fff;padding:24px 40px 20px;border-bottom:5px solid var(--steel)}
+.masthead .kick{font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:#E9B7CC;font-weight:700}
+.masthead h1{font-family:Georgia,"Times New Roman",serif;font-size:2rem;margin:6px 0 2px;line-height:1.15}
+.masthead p{margin:4px 0 0;color:#D7C4CD;font-size:15px}
+.seq{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.seq span{font-size:13px;font-weight:700;border-radius:999px;padding:4px 13px;background:rgba(255,255,255,.14);color:#D7C4CD}
+.seq span.on{background:var(--steel);color:#fff}
+
+table.facts{width:100%;border-collapse:collapse;margin:0 0 6px;font-size:14.5px}
+table.facts td{border:1px solid var(--line);padding:8px 11px;vertical-align:top}
+table.facts td.k{background:var(--pale);font-weight:700;width:128px;color:var(--berry)}
+
+h2{font-family:Georgia,serif;font-size:1.35rem;margin:1.8em 0 .5em;padding-bottom:7px;border-bottom:2px solid var(--line)}
+h3{font-size:1.02rem;margin:1.2em 0 .4em;color:var(--berry)}
+p{margin:.6em 0}
+ul,ol{margin:.5em 0 .8em;padding-left:22px}
+li{margin:5px 0}
+a{color:var(--steel)}
+
+.obj{background:var(--pale);border-left:5px solid var(--berry);padding:16px 20px;border-radius:0 10px 10px 0;margin:14px 0}
+.note{background:#EAF2F7;border-left:5px solid var(--steel);padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;font-size:15px}
+.warn{background:var(--cream);border-left:5px solid #C9972E;padding:12px 16px;border-radius:0 10px 10px 0;margin:14px 0;font-size:15px}
+
+.phase{border:1px solid var(--line);border-radius:12px;margin:20px 0;overflow:hidden;page-break-inside:avoid}
+.ph-top{display:flex;align-items:center;gap:14px;padding:12px 18px;background:var(--ink);color:#fff}
+.ph-top .e{font-family:Georgia,serif;font-size:1.5rem;color:var(--berry);background:#fff;
+  width:42px;height:42px;border-radius:9px;text-align:center;line-height:42px;flex:0 0 42px;font-weight:700}
+.ph-top h3{margin:0;color:#fff;font-family:Georgia,serif;font-size:1.28rem;flex:1 1 auto}
+.ph-top .time{font-size:14px;font-weight:700;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:999px;white-space:nowrap}
+.ph-body{padding:16px 18px}
+table.tt{width:100%;border-collapse:collapse;font-size:14.5px;margin:10px 0}
+table.tt th{background:var(--pale);text-align:left;padding:8px 10px;border:1px solid var(--line);width:50%;color:var(--berry)}
+table.tt td{border:1px solid var(--line);padding:9px 10px;vertical-align:top}
+table.tt ul{margin:0;padding-left:18px}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:5px;padding:2px 8px;margin-right:5px}
+.tag.app{background:#F6E6EC;color:var(--berry)}
+.tag.mat{background:#EAF2F7;color:var(--steel)}
+.evid{background:#EFF8F3;border:1px dashed var(--green);border-radius:9px;padding:11px 14px;margin-top:12px;font-size:14px}
+.evid b{color:var(--green)}
+
+table.types{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0}
+table.types th{background:var(--ink);color:#fff;padding:7px 9px;text-align:left;font-size:13px}
+table.types td{border-bottom:1px solid var(--line);padding:8px 9px;vertical-align:top}
+.tfng{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.tfng div{border-radius:10px;padding:12px 14px;font-size:14.5px}
+.tfng .t{background:#EFF8F3;border:1px solid #BFE0CE}
+.tfng .f{background:#FBECEA;border:1px solid #EDC8C3}
+.tfng .n{background:var(--cream);border:1px solid #EBD9A8}
+.tfng b{display:block;font-size:15.5px;margin-bottom:3px}
+code{background:var(--pale);padding:1px 6px;border-radius:5px;font-size:13.5px}
+.foot{text-align:center;color:var(--muted);font-size:13.5px;padding:20px 40px 0;border-top:2px solid var(--line);margin-top:30px}
+
+@media print{
+  body{background:#fff}
+  .page{box-shadow:none;max-width:none}
+  .btnbar{display:none}
+  .phase{page-break-inside:avoid}
+  h2{page-break-after:avoid}
+  @page{margin:14mm}
+}
+@media (max-width:700px){ .inner,.masthead,.btnbar,.foot{padding-left:18px;padding-right:18px} .tfng{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="btnbar">
+  <button onclick="window.print()">Print / save as PDF</button>
+  <a class="alt" href="https://nana390-tech.github.io/Vocab-List-5--Reading-NEWS/" target="_blank" rel="noopener">Open the reading app</a>
+</div>
+
+<div class="masthead">
+  <div class="kick">Challenge Based Learning · Form D2A</div>
+  <h1>Reading — The Towers That Drink Fog</h1>
+  <p>B1+ · General Studies, English Communications · the List 5 words in a passage</p>
+  <div class="seq"><span>Lesson 1 — Vocabulary</span><span class="on">Lesson 2 — Reading</span></div>
+</div>
+
+<div class="inner">
+
+<table class="facts">
+  <tr><td class="k">Level</td><td>B1+ (CEFR), IELTS Band 6 target</td>
+      <td class="k">Duration</td><td>60 minutes</td></tr>
+  <tr><td class="k">Class</td><td>Emirati students, 17–23</td>
+      <td class="k">Date</td><td>Week of 18 October 2026</td></tr>
+  <tr><td class="k">Focus</td><td>Five IELTS question types · 20 marks</td>
+      <td class="k">Framework</td><td>Engage · Explore · Explain · Extend · Evaluate</td></tr>
+</table>
+
+<div class="warn"><b>This lesson assumes Lesson 1 is done.</b> Students should already know the 40 words.
+If some were absent, send them the quiz link before class — the passage uses the words without re-teaching them.
+<b>If your session is 90 or 120 minutes</b>, give Extend the extra time: run the paper once, review it as a class,
+then have them retake it from scratch. The second attempt is where the question types actually stick.</div>
+
+<h2>Lesson objectives</h2>
+<div class="obj">
+  <p style="margin-top:0"><b>By the end of this lesson, you will…</b></p>
+  <ul>
+    <li>label a diagram using only a written description of how something works;</li>
+    <li>explain the difference between <i>False</i> and <i>Not Given</i>, and give an example of each;</li>
+    <li>choose a heading that matches the main idea of a paragraph, not just a word inside it;</li>
+    <li>answer short questions in no more than three words taken from the passage;</li>
+    <li>use highlighting to mark the evidence for every answer you give.</li>
+  </ul>
+</div>
+
+<h2>Materials</h2>
+<ul>
+  <li><span class="tag app">APP</span><a href="https://nana390-tech.github.io/Vocab-List-5--Reading-NEWS/" target="_blank" rel="noopener">Reading Test 5 — The Towers That Drink Fog</a> — 727-word passage, five teaching lessons, 20-mark paper, highlighter, certificate at 16/20</li>
+  <li><span class="tag mat">HUB</span>The Vocabulary Building Hub — to tick the reading test and light the News badge</li>
+  <li><span class="tag mat">ROOM</span>Projector and student devices. No sound needed this lesson.</li>
+</ul>
+
+<div class="note"><b>What the passage is about:</b> a village with no water of its own, which now collects
+drinking water out of fog using tall panels of mesh. It is science news, so the List 5 words
+(<i>approximately, limited, plenty, pure, scientific, engineering, forecast</i>) appear naturally rather than
+being forced in.</div>
+
+<h2>The five phases</h2>
+
+<!-- ENGAGE -->
+<div class="phase">
+  <div class="ph-top"><span class="e">1</span><h3>Engage — A village with no water</h3><span class="time">8 min</span></div>
+  <div class="ph-body">
+    <p>Do not show the passage yet. Set the problem first, so the solution is worth reading about.</p>
+    <table class="tt">
+      <tr><th>Teacher</th><th>Students</th></tr>
+      <tr><td>
+        <ul>
+          <li>Put one question on the board: <b>“Your village has no water. There is no river, no well, and the lorry does not always come. What would you do?”</b></li>
+          <li>Take three or four answers. Expect: dig deeper, pipe it, desalinate, move away.</li>
+          <li>Then show only the title: <i>The Towers That Drink Fog</i>. Ask what it could possibly mean.</li>
+          <li>Tell them a desert beetle solved this before any engineer did. Leave it there.</li>
+        </ul>
+      </td><td>
+        <ul>
+          <li>In pairs, list three ways to get water to a village with none.</li>
+          <li>Read the title and predict: what are the towers, and how could they “drink”?</li>
+          <li>Write the prediction down — you will check it in ten minutes.</li>
+        </ul>
+      </td></tr>
+    </table>
+    <div class="evid"><b>CBL evidence:</b> the challenge is posed as a real problem before any text appears.
+    The written prediction is what makes Explore purposeful rather than a skim.</div>
+  </div>
+</div>
+
+<!-- EXPLORE -->
+<div class="phase">
+  <div class="ph-top"><span class="e">2</span><h3>Explore — First read, and the highlighter</h3><span class="time">12 min</span></div>
+  <div class="ph-body">
+    <p>They read for gist only. No questions yet — the questions come after they know what the passage says.</p>
+    <table class="tt">
+      <tr><th>Teacher</th><th>Students</th></tr>
+      <tr><td>
+        <ul>
+          <li>Students open the app and tap <b>“Go straight to the test”</b>. Tell them to ignore the questions for now.</li>
+          <li>Demonstrate the highlighter once on the projector: select text, tap Highlight, tap again to remove.</li>
+          <li>Set the three tasks. Six minutes, then take answers.</li>
+          <li>Ask whose Engage prediction was closest.</li>
+        </ul>
+      </td><td>
+        <ul>
+          <li>Read the whole passage once, quickly. Do not stop at unknown words.</li>
+          <li>Highlight the <b>five List 5 words</b> you can find. There are more than five.</li>
+          <li>In one sentence: how does a fog collector actually work?</li>
+          <li>Which paragraph would you look at to find out how <u>much</u> water the panels make?</li>
+        </ul>
+      </td></tr>
+    </table>
+    <div class="evid"><b>CBL evidence:</b> students locate their own prior vocabulary inside new text, which is
+    the bridge from Lesson 1. The last question trains paragraph-level navigation before any question type
+    is named.</div>
+  </div>
+</div>
+
+<!-- EXPLAIN -->
+<div class="phase">
+  <div class="ph-top"><span class="e">3</span><h3>Explain — Five question types, one real trap</h3><span class="time">15 min</span></div>
+  <div class="ph-body">
+    <p>The app has a five-lesson teaching phase. Let it do the explaining, and spend your own minutes on the
+    one distinction that decides Band 6.</p>
+    <table class="types">
+      <tr><th style="width:38%">Type</th><th>The trap the app names</th></tr>
+      <tr><td><b>Labelling a diagram</b></td><td>Guessing from the picture instead of following the description</td></tr>
+      <tr><td><b>True / False / Not Given</b></td><td>Choosing False when the passage simply says nothing</td></tr>
+      <tr><td><b>Matching headings</b></td><td>Picking a heading because it repeats a word from the paragraph</td></tr>
+      <tr><td><b>Short-answer questions</b></td><td>Copying the first number you see — width and height are both there</td></tr>
+      <tr><td><b>Multiple choice</b></td><td>Choosing an option because every word in it appears in the passage</td></tr>
+    </table>
+    <h3>Stop the class after the T/F/NG lesson and teach this at the board (6 minutes)</h3>
+    <div class="tfng">
+      <div class="t"><b>TRUE</b>The passage <u>says</u> this.</div>
+      <div class="f"><b>FALSE</b>The passage says the <u>opposite</u>.</div>
+      <div class="n"><b>NOT GIVEN</b>The passage says <u>nothing either way</u>.</div>
+    </div>
+    <p>Then put this on the board and take a show of hands before revealing the answer:</p>
+    <p><code>Passage: One panel produces approximately two hundred litres on a good foggy morning.</code><br>
+    <code>Statement: The panels cost less than bringing water by lorry.</code></p>
+    <p><b>Answer: NOT GIVEN.</b> It may well be cheaper — but the passage never compares the two costs.
+    Say the rule out loud and make them repeat it: <i>if you cannot find a sentence, that is the answer.</i></p>
+    <div class="note"><b>Also worth 30 seconds:</b> on the diagram, north is at the top, so <b>west is on the left</b>.
+    That runs against the direction Arabic reads, and it is the single commonest error on plan and diagram tasks.</div>
+    <div class="evid"><b>CBL evidence:</b> teacher input is six minutes and targets the one distinction the data
+    says costs the most marks. The app's lessons carry the other four types.</div>
+  </div>
+</div>
+
+<!-- EXTEND -->
+<div class="phase">
+  <div class="ph-top"><span class="e">4</span><h3>Extend — Sit the paper, then defend it</h3><span class="time">17 min</span></div>
+  <div class="ph-body">
+    <table class="tt">
+      <tr><th>Teacher</th><th>Students</th></tr>
+      <tr><td>
+        <ul>
+          <li>Set the 20-mark paper. Twelve minutes, working alone and in silence.</li>
+          <li>Insist on the highlighter: every answer needs its evidence marked.</li>
+          <li>Then stop them and set the pair task, before anyone submits.</li>
+          <li>Circulate during the pair task and listen for <i>“it doesn't say”</i> — that is the phrase you want.</li>
+        </ul>
+      </td><td>
+        <ul>
+          <li>Answer all 20 questions. Guess rather than leave a blank.</li>
+          <li>Highlight the sentence that proves each answer.</li>
+          <li><b>Pair task:</b> swap devices. Find your partner's two <i>Not Given</i> answers and make them prove it — can they show you a sentence? If they can, it isn't Not Given.</li>
+          <li>Submit only after the pair check.</li>
+        </ul>
+      </td></tr>
+    </table>
+    <div class="warn"><b>Why the pair task matters more than the score.</b> A student who guesses Not Given correctly
+    has learnt nothing. Asking them to fail to find a sentence — out loud, to a partner — is what turns the rule
+    into something they can use in the exam.</div>
+    <div class="evid"><b>CBL evidence:</b> the paper is the application, and the pair task is the articulation.
+    Together they give you both a mark and a reason.</div>
+  </div>
+</div>
+
+<!-- EVALUATE -->
+<div class="phase">
+  <div class="ph-top"><span class="e">5</span><h3>Evaluate — Which type is costing you marks?</h3><span class="time">8 min</span></div>
+  <div class="ph-body">
+    <table class="tt">
+      <tr><th>Teacher</th><th>Students</th></tr>
+      <tr><td>
+        <ul>
+          <li>The app scores by question type and shows a bar for each. Project the class pattern.</li>
+          <li>Ask for a show of hands: whose lowest bar was T/F/NG? Expect most of the room.</li>
+          <li>Walk through two or three review items — the app shows the evidence sentence beside each answer.</li>
+          <li>Set the homework and close the two-lesson sequence.</li>
+        </ul>
+      </td><td>
+        <ul>
+          <li>Read the review screen, not just the score. Every answer has its evidence quoted.</li>
+          <li>16 out of 20 earns the certificate.</li>
+          <li>Tick <b>Reading test</b> for List 5 on the hub — both ticks light the News badge.</li>
+          <li>Answer the exit ticket.</li>
+        </ul>
+      </td></tr>
+    </table>
+    <h3>Exit ticket — three questions</h3>
+    <ol>
+      <li>Explain the difference between <i>False</i> and <i>Not Given</i> to someone who missed today.</li>
+      <li>On a diagram with north at the top, which side is west?</li>
+      <li>Which question type was hardest for you, and what will you do differently next time?</li>
+    </ol>
+    <div class="evid"><b>CBL evidence:</b> the per-type breakdown is objective evidence of where each student
+    stands, and question 3 asks them to set their own next step — which is what Proficient looks like on the
+    Evaluate row.</div>
+  </div>
+</div>
+
+<h2>Differentiation</h2>
+<table class="facts">
+  <tr><td class="k">Needs support</td><td>Give them the five teaching lessons and the first nine questions only
+    (diagram labelling and T/F/NG). Pair them with a stronger partner for the defence task. Let them use the
+    hub's word page for any List 5 word they have forgotten.</td></tr>
+  <tr><td class="k">Confident</td><td>No extra time, and ask them to justify every Not Given out loud. Then set
+    the extension: write two new T/F/NG statements about the passage — one False, one Not Given — and test
+    them on another pair.</td></tr>
+  <tr><td class="k">Absent</td><td>Send the link. The app teaches the five types itself and saves a result file
+    they can send you.</td></tr>
+</table>
+
+<h2>Anticipated problems</h2>
+<table class="facts">
+  <tr><td class="k">“It must be False”</td><td>The commonest objection. Ask for the sentence. No sentence, no False.</td></tr>
+  <tr><td class="k">Highlighter ignored</td><td>Make the pair task impossible without it — they cannot check a partner's evidence that was never marked.</td></tr>
+  <tr><td class="k">Reading too slowly</td><td>They read the whole passage in Explore already. Remind them the paper is about finding, not reading.</td></tr>
+  <tr><td class="k">Short on time</td><td>Cut the paper to questions 1–14 and set the rest as homework. Keep the pair task — it is the lesson.</td></tr>
+</table>
+
+<h2>Homework, and where the series goes next</h2>
+<ul>
+  <li>Finish the paper and reach 16 out of 20.</li>
+  <li>Write three statements about the passage: one True, one False, one Not Given. Bring them in — we will test them on the class.</li>
+  <li>Both ticks on the hub give you the <b>News badge</b>. Four lists done, two to go.</li>
+  <li><b>Next:</b> List 6 — Commerce. Preview the 40 word cards on the hub before the lesson.</li>
+</ul>
+
+<div class="foot">Designed by: Nazila Motahari &nbsp;|&nbsp; Higher Colleges of Technology, Abu Dhabi &nbsp;|&nbsp;
+B1+ Vocabulary Building Hub — Set 1 &nbsp;|&nbsp; Lesson 2 of 2</div>
+</div>
+</div>
+</body>
+</html>
